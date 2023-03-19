@@ -4,7 +4,8 @@ function Footer(props) {
     return (
         <div>
             <div className="container_main">
-                <div className="grid grid-cols-10 h-[30px]  ">
+                <div>Danh mục sản phẩm</div>
+                <div className="grid grid-cols-10 h-[30px]">
                     <div className=" col-span-2">asdasdas</div>
                     <div className=" col-span-2">asdasdas</div>
                     <div className=" col-span-2">asdasdas</div>

@@ -37,7 +37,7 @@ function Header(props) {
                 </div>
                 <div  className='grid grid-cols-12 mt-[3px]'>
                     <div className='col-span-2 select-none'>
-                        <Link className='col-span-2 h-[96px] w-[100px] mt-[-38px] flex' hrefLang='/'>
+                        <Link className='col-span-2 h-[96px] w-[100px] mt-[-38px] flex' to='/'>
                             <img src="https://png.pngtree.com/png-clipart/20220111/original/pngtree-coffee-rose-stationery-hand-drawn-elements-png-image_7076965.png" alt="Anh logo" className=' h-[100%]' />
                             <span className='text-white text-[44px] mt-[14px] underline font-bold ml-[-10px] z-20'>Rose</span>
                         </Link>

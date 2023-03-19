@@ -7,7 +7,7 @@ import { MdLocalShipping,MdDiscount } from 'react-icons/md';
 function Slider(props) {
     return (
         
-        <div className='h-[342px] shadow-sm bg-[url("https://cf.shopee.vn/file/3d8d18abbf445264d2b06638653b364c")] mb-[22px] bg-[100%] bg-cover'>
+        <div className='select-none h-[342px] shadow-sm bg-[url("https://cf.shopee.vn/file/3d8d18abbf445264d2b06638653b364c")] mb-[22px] bg-[100%] bg-cover'>
             <div className="container_main">
                 <div className="grid grid-cols-12 py-[30px] gap-[8px]">
                     <div className="col-span-8">
@@ -23,10 +23,22 @@ function Slider(props) {
                     </div>
                 </div>
                 <div className="grid grid-cols-4 gap-5 mt-[-6px]">
-                    <div className="col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]"><AiFillClockCircle className=' text-main-bg text-[32px] mt-[-4px]'/>Giao hàng nhanh trong ngày</div>
-                    <div className="pl-[52px] col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]"><MdLocalShipping className=' text-main-bg text-[32px] mt-[-4px]'/>Miễn phí giao hàng</div>
-                    <div className=" pl-[40px] col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]"><MdDiscount className=' text-main-bg text-[32px] mt-[-4px]'/>Giảm giá</div>
-                    <div className="col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]"><AiFillGift className=' text-main-bg text-[32px] mt-[-4px]'/>Quà tặng</div>
+                    <div className="col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
+                        <AiFillClockCircle className=' text-main-bg text-[32px] mt-[-4px]'/>
+                        Giao hàng nhanh trong ngày
+                    </div>
+                    <div className="pl-[52px] col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
+                        <MdLocalShipping className=' text-main-bg text-[32px] mt-[-4px]'/>
+                        Miễn phí giao hàng
+                    </div>
+                    <div className=" pl-[40px] col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
+                        <MdDiscount className=' text-main-bg text-[32px] mt-[-4px]'/>
+                        Giảm giá
+                    </div>
+                    <div className="col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
+                        <AiFillGift className=' text-main-bg text-[32px] mt-[-4px]'/>
+                        Quà tặng
+                    </div>
                 </div>
             </div>
            
