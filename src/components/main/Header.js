@@ -43,7 +43,7 @@ function Header(props) {
                         </Link>
                     </div>
                     <div className='col-span-10 grid grid-cols-10 h-[35px] relative'>
-                        <div className="col-span-9 flex"><div className=" bg-white flex justify-center items-center  hover:cursor-pointer w-[50px] rounded-l-md search   z-50  hover:text-red-700 serachIconContainer"><FiSearch className='searchIcontext-[22px]'/>
+                        <div className="col-span-9 flex"><div className=" bg-white flex justify-center items-center  hover:cursor-pointer w-[50px] rounded-l-md search z-50  hover:text-red-700 serachIconContainer"><FiSearch className='searchIcon text-[22px]'/>
                         </div>
                         <input className='flex-1 z-50 rounded-r-md h-9 focus:outline-none pr-4 focus:rounded-b-none searchInput' onClick={e=>{e.stopPropagation() ;setOpenInput(true)}}/>
                         {openInput && <>

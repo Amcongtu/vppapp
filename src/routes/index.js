@@ -1,5 +1,7 @@
 import defaultLayout from "../layouts/defaultLayout"
 import home from "../pages/home/home"
+import trangchitiet from "../pages/trangchitiet/trangchitiet"
+import login from './../pages/login/login';
 
 
 const route = [
@@ -9,9 +11,14 @@ const route = [
         layout:defaultLayout,
     },
     {
-        path:'/:id',
-        element:home,
+        path:'/trangchitiet',
+        element:trangchitiet,
         layout:defaultLayout,
+    },
+    {
+        path:'/login',
+        element:login,
+        layout:null,
     },
 ]
 
