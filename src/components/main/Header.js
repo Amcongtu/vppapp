@@ -25,7 +25,7 @@ function Header(props) {
  
 
     return (
-        <div className='h-[96px] bg-gradient-to-b from-main-bg to-[#FF6533] shadow-md'>
+        <div className='h-[96px] bg-gradient-to-b from-main-bg to-[#FF6533] shadow-md sticky top-0 z-50'>
             <div className="container_main ">
                 <div className="justify-end flex gap-8 text-white p-1 text-[14px] select-none">
                     <div className='flex gap-1 mt-[2px] hover:cursor-pointer active:scale-90 hover:opacity-80'><RiFileList3Fill className='text-[16px] mt-[2px]'/>Nhận báo giá văn phòng phẩm NHANH HƠN</div>
