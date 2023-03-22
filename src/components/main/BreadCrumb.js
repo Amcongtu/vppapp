@@ -25,9 +25,9 @@ function BreadCrumb(props) {
 
     return (
         <div>
-            <div className='bg-white'>
+            <div className='bg-white mb-6'>
                 <div className="container_main ">
-                    <div className='text-[#343434] text-[14px] leading-[20px] py-4 flex'>
+                    <div className='text-[#343434] text-[14px] leading-[20px] p-4  flex'>
                         <Link to="/">Văn phòng phẩm</Link>
                         {crumbs}
                         

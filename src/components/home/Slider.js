@@ -22,8 +22,8 @@ function Slider(props) {
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-4 gap-5 mt-[-6px]">
-                    <div className="col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
+                <div className="ml-2 grid grid-cols-4 gap-5 mt-[-6px]">
+                    <div className="pl-0 col-span-1 gap-2 flex text-[18px] font-[500] opacity-95 text-[#343434]">
                         <AiFillClockCircle className=' text-main-bg text-[32px] mt-[-4px]'/>
                         Giao hàng nhanh trong ngày
                     </div>

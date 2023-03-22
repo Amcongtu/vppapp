@@ -10,7 +10,7 @@ function CardProduct(props) {
                 <div className="grid grid-cols-6">
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="https://cdn.fast.vn/tmp/20220727082028-70-a4.PNG" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
@@ -41,7 +41,7 @@ function CardProduct(props) {
 
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="https://cdn.fast.vn/tmp/20220727082245-a3faa232d2901f2f1538727407029c9e.jpg" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
@@ -72,7 +72,7 @@ function CardProduct(props) {
 
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="	https://cdn.fast.vn/tmp/20200716114157-3.jpg" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
@@ -103,7 +103,7 @@ function CardProduct(props) {
 
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="https://cdn.fast.vn/tmp/20200706075620-15.jpg" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
@@ -134,7 +134,7 @@ function CardProduct(props) {
 
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="https://cdn.fast.vn/tmp/20201020135138-giay-a4-70gsm-idea.jpg" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
@@ -165,7 +165,7 @@ function CardProduct(props) {
 
                     <div className="col-span-1 ">
                         <div className=' relative duration-200 cart-container'>
-                            <div className='border-[1px] border-gray-200 cursor-pointer'>
+                            <div className='border-[1px] border-gray-100 cursor-pointer'>
                                 <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
                                     <img src="	https://cdn.fast.vn/tmp/20200703182036-7.jpg" alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                 </div>
