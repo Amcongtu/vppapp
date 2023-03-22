@@ -1,7 +1,8 @@
 import defaultLayout from "../layouts/defaultLayout"
 import home from "../pages/home/home"
-import trangchitiet from "../pages/trangchitiet/trangchitiet"
 import login from './../pages/login/login';
+import category from './../pages/category/category';
+import pageNotFound from './../pages/PageNotFound/pageNotFound';
 
 
 const route = [
@@ -11,8 +12,8 @@ const route = [
         layout:defaultLayout,
     },
     {
-        path:'/trangchitiet',
-        element:trangchitiet,
+        path:'/danhmuc/:id',
+        element:category,
         layout:defaultLayout,
     },
     {
@@ -20,6 +21,11 @@ const route = [
         element:login,
         layout:null,
     },
+    {
+        path:"*",
+        element:pageNotFound,
+        layout:defaultLayout
+    }
 ]
 
 export default route 
