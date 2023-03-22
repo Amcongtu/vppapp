@@ -3,14 +3,16 @@ import Introduce from '../../components/category/Introduce';
 import Propose from '../../components/category/Propose';
 import BreadCrumb from '../../components/main/BreadCrumb';
 import ProductCategory from './../../components/category/ProductCategory';
+import { data } from '../../data/dataProduct.js';
+import dataCategory from './../../data/dataCategory';
 
 function category(props) {
     return (
         <div>
             <BreadCrumb/>
-            <Propose/>
+            <Propose data={dataCategory}/>
             <Introduce/>
-            <ProductCategory/>
+            <ProductCategory data={data}/>
         </div>
     );
 }
