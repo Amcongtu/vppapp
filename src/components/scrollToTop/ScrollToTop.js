@@ -26,7 +26,7 @@ function ScrollToTop(props) {
         <div>
             {
                 backToTop && 
-                <div className=' fixed  bottom-[116px] right-[40px] rounded-full w-12 h-12 z-50 bg-gray-300 cursor-pointer active:scale-95 flex justify-center items-center shadow-lg text-main-bg' onClick={scrollUp}>
+                <div className=' fixed  bottom-[116px] right-[40px] rounded-full w-12 h-12 z-50 bg-gray-300 cursor-pointer active:scale-95 flex justify-center items-center shadow-lg text-main-bg hover:opacity-70' onClick={scrollUp}>
                     <BiArrowToTop className='font-bold text-main-bg text-[22px]'/>
                 </div>
             }

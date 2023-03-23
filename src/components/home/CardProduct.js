@@ -4,7 +4,7 @@ import "./cart.scss"
 function CardProduct(props) {
     const data = props.data.map((item,index)=>{
         return (
-            <div className="col-span-1 ">
+            <div className="col-span-1 " key={index}>
                 <div className=' relative duration-200 cart-container'>
                     <div className='border-[1px] border-gray-100 cursor-pointer'>
                         <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>

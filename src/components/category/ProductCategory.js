@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AiOutlineHeart,AiFillEye,AiOutlineShoppingCart, AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 
 
@@ -37,14 +37,22 @@ function ProductCategory({data}) {
                     </div>
         )
     });
+
+    const [active, setActive] = useState(1)
     return (
         <div>
             <div className="container_main">
                 <div className="flex justify-end mt-[20px] select-none"> 
                     <div className="flex gap-4">
-                        <div className='hover:cursor-pointer text-main-bg'>Phổ biến</div>
-                        <div className='hover:cursor-pointer '>Giá cao</div>
-                        <div className='hover:cursor-pointer '>Giá thấp</div>
+                        <div className={`hover:cursor-pointer ${active===1?'text-main-bg':''}`} onClick={()=>{
+                            setActive(1)
+                        }}>Phổ biến</div>
+                        <div className={`hover:cursor-pointer ${active===2?'text-main-bg':''}`} onClick={()=>{
+                            setActive(2)
+                        }}>Giá cao</div>
+                        <div className={`hover:cursor-pointer ${active===3?'text-main-bg':''}`} onClick={()=>{
+                            setActive(3)
+                        }}>Giá thấp</div>
                     </div>
                 </div>
                 <div className="grid grid-cols-6 mt-[20px] mb-[10px] bg-white">

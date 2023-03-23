@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RiFileList3Fill } from 'react-icons/ri';
 import { FaBlog,FaRegBell } from 'react-icons/fa';
 import { MdDiscount } from 'react-icons/md';
@@ -9,6 +9,7 @@ import { HiTrendingUp } from 'react-icons/hi';
 
 import "./header.scss"
 import { Link } from 'react-router-dom';
+import { searchContext } from './../../context/SerchContext';
 
 
 function Header(props) {
@@ -23,7 +24,8 @@ function Header(props) {
         }
     },[])
  
-
+    const {searchvalue,setSearchvalue} = useContext(searchContext)
+    
     return (
         <div className='h-[96px] bg-gradient-to-b from-main-bg to-[#FF6533] shadow-md sticky top-0 z-50'>
             <div className="container_main ">
@@ -45,7 +47,7 @@ function Header(props) {
                     <div className='col-span-10 grid grid-cols-10 h-[35px] relative'>
                         <div className="col-span-9 flex"><div className=" bg-white flex justify-center items-center  hover:cursor-pointer w-[50px] rounded-l-md search z-50  hover:text-red-700 serachIconContainer"><FiSearch className='searchIcon text-[22px]'/>
                         </div>
-                        <input className='flex-1 z-50 rounded-r-md h-9 focus:outline-none pr-4 focus:rounded-b-none searchInput' onClick={e=>{e.stopPropagation() ;setOpenInput(true)}}/>
+                        <input className='flex-1 z-50 rounded-r-md h-9 focus:outline-none pr-4 focus:rounded-b-none searchInput' onClick={e=>{e.stopPropagation() ;setOpenInput(true)}} value={searchvalue} onChange={(e)=>{setSearchvalue(e.target.value)}}/>
                         {openInput && <>
                             <div className="px-[48px] py-[10px] absolute rounded-b-md z-50  shadow-sm bg-white top-[35px] w-[90%] border-t-gray-300 border-t-[1px] " onClick={e=>{e.stopPropagation();}} >
                                 <div className="flex gap-2 mb-[12px]">
