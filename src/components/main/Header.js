@@ -26,6 +26,10 @@ function Header(props) {
  
     const {searchvalue,setSearchvalue} = useContext(searchContext)
     
+    const dataSerach = props.data.map((item,index)=>{
+        return (<div className=" col-span-1 m-2 p-1 bg-[#fafafa] select-none hover:cursor-pointer hover:opacity-60 border-[1px] rounded-md leading-[22px] justify-center flex items-center" onClick={(e)=>{setSearchvalue(e.target.innerText); setOpenInput(false);}} onChange={e=>{setSearchvalue(e.target.value)}}>{item.content}</div>)
+    })
+    
     return (
         <div className='h-[96px] bg-gradient-to-b from-main-bg to-[#FF6533] shadow-md sticky top-0 z-50'>
             <div className="container_main ">
@@ -56,15 +60,8 @@ function Header(props) {
                                 </div>
                                 <div className='grid grid-cols-4 gap-1
                                  text-[12px] text-[#242424]'>
-                                    <div className=" col-span-1 m-2 p-1 bg-[#fafafa] border-[1px] rounded-md leading-[22px] justify-center flex items-center">lưỡi dao rọc giấy deli 30 độasdasdasdasdasdasd</div>
-                                    <div className=" col-span-1 m-2 p-1 bg-[#fafafa] border-[1px] rounded-md leading-[22px] justify-center flex items-center">lưỡi dao rọc giấy deli 30 độasdasdasdasdasdasd</div>
-                                    <div className=" col-span-1 m-2 p-1 bg-[#fafafa] border-[1px] rounded-md leading-[22px] justify-center flex items-center">lưỡi dao rọcdasdasdasd</div>
-                                    <div className=" col-span-1 m-2 p-1 bg-[#fafafa] border-[1px] rounded-md leading-[22px] justify-center flex items-center">lưỡi dao rọc giấy deli 30 độasdasdasdasdasdasd</div>
-                                    <div className=" col-span-1 m-2">123123</div>
-                                    <div className=" col-span-1 m-2">123123</div>
-                                    <div className=" col-span-1 m-2">123123</div>
-                                    <div className=" col-span-1 m-2">123123</div>
-                                    <div className=" col-span-1 m-2">123123</div>
+                                    {dataSerach}
+                                   
                                    
                                 </div>
                             </div>

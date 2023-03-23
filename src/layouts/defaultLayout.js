@@ -4,13 +4,14 @@ import Header from './../components/main/Header';
 import Footer from './../components/main/Footer';
 import IconChat from './../components/main/IconChat';
 import ScrollToTop from './../components/scrollToTop/ScrollToTop';
-
+import dataSearch from './../data/dataPopularSearch';
 
 function defaultLayout({children}) {
+    
     return (
         <div>
-            <ScrollToTop/>
-            <Header/>
+            <ScrollToTop/> 
+            <Header data={dataSearch}/>
             {children}
             <Footer/>
             <IconChat/>

@@ -5,13 +5,14 @@ import Category from './../../components/home/Category';
 import CardProduct from './../../components/home/CardProduct';
 import { data } from '../../data/dataProduct.js';
 import dataCategory from './../../data/dataCategory';
+import dataSearch from './../../data/dataPopularSearch';
 
 function home(props) {
     return (
         <div>
             <Slider/>
             <Category data={dataCategory}/>
-            <PopularSearch/>
+            <PopularSearch data={dataSearch}/>
             <CardProduct data={data}/>
         </div>
     );
