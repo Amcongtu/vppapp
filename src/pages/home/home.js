@@ -3,7 +3,7 @@ import PopularSearch from '../../components/home/PopularSearch.js';
 import Slider from '../../components/home/Slider.js';
 import Category from './../../components/home/Category';
 import CardProduct from './../../components/home/CardProduct';
-import { data } from '../../data/dataProduct.js';
+import { data } from '../../data/dataProducts.js';
 import dataCategory from './../../data/dataCategory';
 import dataSearch from './../../data/dataPopularSearch';
 

@@ -46,7 +46,7 @@ function PopularSearch(props) {
     const {setSearchvalue} = useContext(searchContext)
     const data = props.data.map((item,index)=>{
         return (
-         <div>
+         <div key = {index}>
             <div className="border-[1px]  border-gray-100 h-[112px]  flex justify-between items-center  px-2 hover:cursor-pointer select-none"  onClick={(e)=>{setSearchvalue(e.target.innerText)}} >
                 <span className="block font-[500] text-[14px] text-[#343434] capitalize line-clamp-2 p-4" >{item.content}</span>
                 <div className=''><BsSearch className=" text-[28px] mr-3"/></div>
