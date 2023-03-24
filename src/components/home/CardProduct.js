@@ -1,10 +1,11 @@
 import React from 'react';
 import { AiOutlineHeart,AiFillEye,AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import "./cart.scss"
 function CardProduct(props) {
     const data = props.data.map((item,index)=>{
         return (
-            <div className="col-span-1 " key={index}>
+            <Link className="col-span-1 " key={index} to={`/sanpham/${item.name}`}>
                 <div className=' relative duration-200 cart-container'>
                     <div className='border-[1px] border-gray-100 cursor-pointer'>
                         <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
@@ -33,7 +34,7 @@ function CardProduct(props) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Link>
         )
     })
     return (

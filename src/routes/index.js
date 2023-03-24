@@ -3,6 +3,7 @@ import home from "../pages/home/home"
 import login from './../pages/login/login';
 import category from './../pages/category/category';
 import pageNotFound from './../pages/PageNotFound/pageNotFound';
+import product from './../pages/product/product';
 
 
 const route = [
@@ -14,6 +15,11 @@ const route = [
     {
         path:'/danhmuc/:id',
         element:category,
+        layout:defaultLayout,
+    },
+    {
+        path:'/sanpham/:id',
+        element:product,
         layout:defaultLayout,
     },
     {

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { AiOutlineHeart,AiFillEye,AiOutlineShoppingCart, AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 
 function ProductCategory({data}) {
     const product = data.map((item,index)=>{
         return (
-            <div className="col-span-1 " key={index}>
+            <Link className="col-span-1 " key={index} to={`/sanpham/${item.name}`}>
                             <div className=' relative duration-200 cart-container border-[1px] border-gray-100'>
                                 <div className='border-[1px] border-gray-100 cursor-pointer'>
                                     <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
@@ -34,7 +35,7 @@ function ProductCategory({data}) {
                                     </div>
                                 </div>
                             </div>
-                    </div>
+                    </Link>
         )
     });
 

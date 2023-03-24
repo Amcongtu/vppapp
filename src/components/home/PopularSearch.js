@@ -11,7 +11,7 @@ function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
-        className={`${className} mr-4 z-10` }
+        className={`${className} mr-[-8px] p-4 z-10` }
         style={{ ...style, display: "block", background: "#FB5130", borderRadius:"100%" }}
         onClick={onClick}>
         </div>
@@ -22,7 +22,7 @@ function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
-        className={`${className} ml-4 z-10` }
+        className={`${className} ml-[-8px] z-10` }
         style={{ ...style, display: "block", background: "#FB5130",borderRadius:"100%" }}
         onClick={onClick}
       />
@@ -32,10 +32,13 @@ function SampleNextArrow(props) {
 
 function PopularSearch(props) {
     const settings = {
-        dots: true,
         infinite: true,
+        dots: true,
         slidesToShow: 4,
         slidesToScroll: 1,
+        autoplay: true,
+        speed: 1500,
+        cssEase: "linear",
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };

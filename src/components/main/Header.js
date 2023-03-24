@@ -54,7 +54,7 @@ function Header(props) {
                         <input className='flex-1 z-50 rounded-r-md h-9 focus:outline-none pr-4 focus:rounded-b-none searchInput' onClick={e=>{e.stopPropagation() ;setOpenInput(true)}} value={searchvalue} onChange={(e)=>{setSearchvalue(e.target.value)}}/>
                         {openInput && <>
                             <div className="px-[48px] py-[10px] absolute rounded-b-md z-50  shadow-sm bg-white top-[35px] w-[90%] border-t-gray-300 border-t-[1px] " onClick={e=>{e.stopPropagation();}} >
-                                <div className="flex gap-2 mb-[12px]">
+                                <div className="flex gap-2 mb-[12px] mt-4">
                                     <div className='w-6 h-6 mt-0 bg-main-bg flex justify-center items-center rounded-full'><HiTrendingUp className='text-white'/> </div>
                                     <span className="font-[500] text-[16px]">Tìm kiếm phổ biến</span>
                                 </div>
