@@ -17,7 +17,7 @@ function BreadCrumb(props) {
         if(name==="sanpham"){
             name="Sản phẩm"
         }
-        if(name==="giohang"){
+        if(name==="gio-hang"){
             name="Giỏ hàng"
         }
         currentLink +=`/${crumb}` 

@@ -3,6 +3,7 @@ import { AiOutlineHeart,AiFillEye,AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import "./cart.scss"
 function CardProduct(props) {
+    
     const data = props.data.map((item,index)=>{
         return (
             <Link className="col-span-1 " key={index} to={`/sanpham/${item.name}`}>

@@ -10,9 +10,11 @@ import { HiTrendingUp } from 'react-icons/hi';
 import "./header.scss"
 import { Link } from 'react-router-dom';
 import { searchContext } from './../../context/SerchContext';
+import { cartContext } from '../../context/CartContext';
 
 
 function Header(props) {
+    const {cartQuantity } = useContext(cartContext); // lấy hàm addToCart từ context
     const [openInput,setOpenInput] = useState(false)
     useEffect(()=>{
         function clickOutside(){
@@ -71,9 +73,12 @@ function Header(props) {
                         
                        }
                         </div>      
-                        <div className="relative col-span-1 flex justify-center items-center text-white active:scale-90 hover:text-red-700 hover:cursor-pointer pt-2 before:absolute before:content-['7'] before:text-[12px] before:items-center before:flex before:justify-center before:h-4 before:w-4 before:bg-white before:top-[2.3px] before:right-7 before:rounded-xl before:text-gray-500 before:font-[600]">
-                            <AiOutlineShoppingCart className=' text-[24px] '/>
-                        </div>
+                        
+                        <Link className={`relative col-span-1 flex justify-center items-center text-white active:scale-90 hover:text-red-700 hover:cursor-pointer pt-2 select-none`} to="/gio-hang">
+                            <AiOutlineShoppingCart className=' text-[24px] '>
+                            </AiOutlineShoppingCart>
+                            <div className=' absolute w-fit px-[6px] h-5 bg-white top-[1px] rounded-full ml-6 text-gray-700 text-center flex justify-center items-center text-[12px]'>{cartQuantity}</div>
+                        </Link>
                     </div>
 
                 </div>
