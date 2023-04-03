@@ -1,104 +1,76 @@
-import React, { createContext, useEffect, useState } from 'react';
+  import React, { createContext, useEffect, useState } from 'react';
 
-export const cartContext = createContext();
+  export const cartContext = createContext();
 
 
-function CartContext({children}) {
-    const [cart, setCart] = useState([]);
-    const [cartQuantity, setCartQuantity] = useState(0);
-  
+  function CartContext({ children }) {
+    const [cartItems, setCartItems] = useState(() => {
+      const storedCartItems = localStorage.getItem("cartItems");
+      return storedCartItems ? JSON.parse(storedCartItems) : [];
+    });
+
     useEffect(() => {
-      const storedCart = JSON.parse(localStorage.getItem('cart'));
-      if (storedCart && storedCart.length!==0) {
-        setCart(storedCart );
-        let quantity = 0;
-        storedCart.forEach(item => {
-          quantity += item.quantity;
-        });
-        setCartQuantity(quantity);
-      }
-    }, []);
-    const checkProductQuantity = (productId) => {
-      const itemIndex = cart.findIndex((item) => item.id === productId);
-      if (itemIndex >= 0) {
-        const updatedCart = [...cart];
-        const quantity = updatedCart[itemIndex].quantity;
-        if (quantity === 0) {
-          updatedCart.splice(itemIndex, 1);
-          setCart(updatedCart);
-          let newQuantity = 0;
-          updatedCart.forEach((item) => {
-            newQuantity += item.quantity;
-          });
-          setCartQuantity(newQuantity);
-          localStorage.setItem('cart', JSON.stringify(updatedCart));
-          localStorage.setItem('cartQuantity', JSON.stringify(newQuantity));
-        }
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    }, [cartItems]);
+
+    const addToCart = (item, quantity) => {
+      // Kiểm tra sản phẩm đã có trong giỏ hàng chưa
+      const existingCartItem = cartItems.find((cartItem) => cartItem._id === item._id);
+
+      if (existingCartItem) {
+        // Nếu sản phẩm đã có trong giỏ hàng, cập nhật số lượng sản phẩm
+        setCartItems(
+          cartItems.map((cartItem) =>
+            cartItem._id === item._id ? { ...cartItem, quantity: cartItem.quantity + quantity } : cartItem
+          )
+        );
+      } else {
+        // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm vào giỏ hàng
+        setCartItems([...cartItems, { ...item, quantity }]);
       }
     };
 
-    const addToCart = (product, quantity) => {
-        const itemIndex = cart.findIndex(item => item.id === product.id);
-        if (itemIndex >= 0) {
-          const updatedCart = [...cart];
-          updatedCart[itemIndex].quantity += quantity;
-          setCart(updatedCart);
-        } else {
-          setCart([...cart, { ...product, quantity }]);
-        }
-        setCartQuantity(prev => prev + quantity);
-        localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity + quantity));
-      };
+    const removeFromCart = (item) => {
+      setCartItems(cartItems.filter((cartItem) => cartItem._id !== item._id));
+    };
 
-      const removeFromCart = (product, quantity) => {
-        const itemIndex = cart.findIndex(item => item.id === product.id);
-        if (itemIndex >= 0) {
-          const updatedCart = [...cart];
-          if (updatedCart[itemIndex].quantity > quantity) {
-            updatedCart[itemIndex].quantity -= quantity;
-            setCart(updatedCart);
-          } else {
-            updatedCart.splice(itemIndex, 1);
-            setCart(updatedCart);
-          }
-          setCartQuantity(prev => prev - quantity);
-          localStorage.setItem('cartQuantity', JSON.stringify(cartQuantity - quantity));
-        }
-      };
-      const updateCart = (productId, quantity) => {
-        
-        const itemIndex = cart.findIndex(item => item.id === productId);
-        if (itemIndex >= 0) {
-          const updatedCart = [...cart];
-          updatedCart[itemIndex].quantity = quantity;
-          setCart(updatedCart);
-          let newQuantity = 0;
-          updatedCart.forEach(item => {
-            newQuantity += item.quantity;
-          });
-          setCartQuantity(newQuantity);
-          localStorage.setItem('cart', JSON.stringify(updatedCart));
-          localStorage.setItem('cartQuantity', JSON.stringify(newQuantity));
-          
-        }
-      };
-      const clearCart = () => {
-        setCart([]);
-        setCartQuantity(0);
-        localStorage.setItem('cartQuantity', JSON.stringify(0));
-      };
+    const updateCartItemQuantity = (item, quantity) =>  {
+      
+      setCartItems(
+        cartItems.map((cartItem) => (cartItem._id === item._id ? { ...cartItem, quantity } : cartItem))
+      );
+    };
 
-      useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
-      }, [cart]);
-    
+    const getTotalItems = () => {
+      return cartItems.reduce((total, item) => total + item.quantity, 0);
+    };
+
+    const getTotalPrice = () => {
+      return cartItems.reduce((total, item) => total + item.DONGIA * item.quantity, 0);
+    };
+
+    const removeItemIfQuantityIsZero = (item) => {
+      if (item.quantity === 0) {
+        setCartItems(cartItems.filter((cartItem) => cartItem._id !== item._id));
+      }
+    };
+
+    useEffect(() => {
+      cartItems.forEach((item) => {
+        removeItemIfQuantityIsZero(item);
+      });
+      
+    }, [cartItems]);
+
     return (
-        <div>
-            <cartContext.Provider value={{cart, setCart,cartQuantity, addToCart, removeFromCart, clearCart,updateCart,checkProductQuantity}}>
-                {children}
-            </cartContext.Provider>
-        </div>
+      <div>
+        <cartContext.Provider
+          value={{ addToCart, removeFromCart, updateCartItemQuantity, getTotalItems, getTotalPrice}}
+        >
+          {children}
+        </cartContext.Provider>
+      </div>
     );
-}
+  }
 
-export default CartContext;
+  export default CartContext;

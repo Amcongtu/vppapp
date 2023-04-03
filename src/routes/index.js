@@ -1,10 +1,13 @@
 import defaultLayout from "../layouts/defaultLayout"
+import ProductList from "../pages/product/ProductList";
+
 import home from "../pages/home/home"
 import login from './../pages/login/login';
 import category from './../pages/category/category';
 import pageNotFound from './../pages/PageNotFound/pageNotFound';
-import product from './../pages/product/product';
+import Productdetail from '../pages/product/ProductDetail';
 import Cart from './../pages/cart/cart';
+import Checkout from "../pages/checkout/Checkout";
 
 
 const route = [
@@ -20,7 +23,7 @@ const route = [
     },
     {
         path:'/sanpham/:id',
-        element:product,
+        element:Productdetail,
         layout:defaultLayout,
     },
     {
@@ -31,6 +34,16 @@ const route = [
     {
         path:'/gio-hang',
         element:Cart,
+        layout:defaultLayout,
+    },
+    {
+        path:'/thanh-toan',
+        element:Checkout,
+        layout:defaultLayout,
+    },
+    {
+        path:'/sanpham',
+        element:ProductList,
         layout:defaultLayout,
     },
     {

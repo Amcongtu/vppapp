@@ -2,29 +2,40 @@ import React from 'react';
 
 
 import CartProductItem from './CartProductItem';
-import { useContext } from 'react';
-import { cartContext } from '../../context/CartContext';
+
 import { Link } from 'react-router-dom';
 import { BsArrowLeftShort } from 'react-icons/bs';
+import { useContext } from 'react';
+import { cartContext } from '../../context/CartContext';
+
+
 
 function CartDetail(props) {
-    const { cartQuantity } = useContext(cartContext );
-   const cartQuantity_text = cartQuantity
-    const cart = JSON.parse( localStorage.getItem("cart"));
+    const {getTotalItems} = useContext(cartContext)
+    
+
+    var cart = JSON.parse( localStorage.getItem("cartItems"));
+    
+    const getCartItemCount = getTotalItems()
+
     const getCartProduct = cart.map((item,index)=>{
+        
         return (<CartProductItem key={index} data={item}></CartProductItem>)
     })
+   
     return (
-        <div>
+        <div >
             <div className="container_main">
-                {Number(cartQuantity_text)>0 &&(
+            
+                {Number(getCartItemCount)>0 &&(
+                    
                 <div>
                     <div className='flex gap-2 my-4'>
                         <span className='block text-[#e54910] font-[600] text-[22px] leading-[26px] pl-5'>Giỏ hàng</span>
-                        <span className="block text-[18px] font-[300] leading-[22px] text-[#e54910] my-auto">({cartQuantity_text} sản phẩm)</span>
+                        <span className="block text-[18px] font-[300] leading-[22px] text-[#e54910] my-auto">({getCartItemCount} sản phẩm)</span>
                 </div>
                 <div className="bg-white rounded-md ">
-                        <div className='border-b-[1px] border-b-gray-200 py-4 mb-2'>
+                        <div className='border-b-[1px] border-b-gray-200 py-4'>
                             <div className="grid grid-cols-8">
                                 <div className="col-span-3">
                                     <span className='text-[#343434] text-[16px] font-[600] p-3 text-left'>
@@ -54,14 +65,14 @@ function CartDetail(props) {
 
                             </div>
                         </div>
-                        <div className="py-1">
+                        <div className="">
                             {getCartProduct}
                         </div>
                 </div>
                 </div>
                 
                 )}
-                {(Number(cartQuantity_text)<1)&&(
+                {(Number(getCartItemCount)<1)&&(
                     <div className='bg-white rounded-md p-5 flex justify-center items-center'>
                         <div className="flex gap-8">
                             <div><img src="https://cdn3d.iconscout.com/3d/premium/thumb/cart-5590712-4652404.png" alt="" className='w-full h-full select-none' /></div>

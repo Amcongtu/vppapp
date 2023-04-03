@@ -4,15 +4,12 @@ import { AiFillMinusCircle, AiFillPlusCircle, AiOutlineHeart } from 'react-icons
 import  { cartContext } from './../../context/CartContext';
 
 function ProductDetail({data}) {
-
+ 
     const [quantity, setQuantity] = useState(1);
   
-
-
     const { addToCart } = useContext(cartContext); // lấy hàm addToCart từ context
   const handleAddToCart = () => {
     addToCart(data, quantity); // thêm sản phẩm vào giỏ hàng với số lượng là 1
-
   };
 
     const [activeThumnail,setActiveThumnail]= useState(0)

@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AiFillMinusCircle, AiFillPlusCircle } from 'react-icons/ai';
-import { useContext } from 'react';
 import { cartContext } from '../../context/CartContext';
-function CartProductItem({data}) {
-    const [quantity,setQuantity] = useState(Number(data.quantity))
-    console.log(data)
-    const { updateCart,checkProductQuantity } = useContext(cartContext);
-    const handleQuantityChange = (productId, newQuantity) => {
-        updateCart(productId, newQuantity);
-        checkProductQuantity(productId);
+// import { useContext } from 'react';
+// import { cartContext } from '../../context/CartContext';
+function CartProductItem({data,so}) {
+    const {updateCartItemQuantity } = useContext(cartContext);
 
+    const [soluong,setsoluong] = useState(data.quantity)
+
+    // const { updateCart,checkProductQuantity } = useContext(cartContext);
+    const handlesoluongChange = (product, newsoluong) => {
+        if(Number(newsoluong)===0){
+            window.location.reload()
+        }
+        setsoluong(newsoluong)
+        updateCartItemQuantity(product, newsoluong);
     }
     const cashCalculation = (number,price)=>{
         return Number(number)*Number(price)
     }
+    
     return (
-        
-            <div className="border-b-[1px] border-b-gray-200 mb-3">
+        (Number(soluong)>0)&&
+        <>
+         <div className={`border-b-[1px] border-b-gray-200 mt-[10px]`}>
             <div className="grid grid-cols-8">
                 <div className="col-span-3">
                     <Link className="mx-4 my-1 h-[100px] w-[86px] inline-block hover:opacity-90" to={`/sanpham/${data.TENHH}`}>
@@ -36,14 +43,18 @@ function CartProductItem({data}) {
                 </div>
                 <div className="col-span-2">
                     <div className='flex'>
-                        <div className="text-main-bg hover:cursor-pointer my-auto text-[24px] select-none active:scale-95"><AiFillMinusCircle className='' onClick={()=>{if(Number(quantity)<=1){setQuantity(0)}else{setQuantity(Number(quantity)-1)};handleQuantityChange(data.id,Number(quantity-1))}}/></div>
-                        <input type="text" className='mx-2 outline-[12px] outline-main-bg w-10 text-center bg-[#F7F4F4] rounded-md' value={quantity} min={0} onChange={e=>setQuantity(e.target.value)} />
-                        <div className="text-main-bg hover:cursor-pointer my-auto text-[24px] select-none active:scale-95"><AiFillPlusCircle className='' onClick={()=>{setQuantity(Number(quantity)+1);handleQuantityChange(data.id,Number(quantity+1))}}/></div>
+                        <div className="text-main-bg hover:cursor-pointer my-auto text-[24px] select-none active:scale-95">
+                            <AiFillMinusCircle className='' onClick={()=>{handlesoluongChange(data,Number(soluong-1))}}/>
+                        </div>
+                        <input type="text" className='mx-2 outline-[12px] outline-main-bg w-10 text-center bg-[#F7F4F4] rounded-md' value={soluong} min={0} onChange={e=>setsoluong(e.target.value)} />
+                        <div className="text-main-bg hover:cursor-pointer my-auto text-[24px] select-none active:scale-95">
+                            <AiFillPlusCircle className='' onClick={()=>{handlesoluongChange(data,Number(soluong+1))}}/>
+                        </div>
                     </div>
                 </div>
                 <div className="col-span-1">
                     <span className='text-[#343434] text-[16.75px] font-[700] p-3 text-left'>
-                        {cashCalculation(quantity,data.DONGIA).toLocaleString('vi', {style : 'currency', currency : 'VND'})}
+                        {cashCalculation(soluong,data.DONGIA).toLocaleString('vi', {style : 'currency', currency : 'VND'})}
                     </span>
                 </div>
                 <div className="col-span-1">
@@ -55,6 +66,8 @@ function CartProductItem({data}) {
             </div>
         </div>
         
+        </>
+       
     );
 }
 

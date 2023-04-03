@@ -14,8 +14,9 @@ import { cartContext } from '../../context/CartContext';
 
 
 function Header(props) {
-    const {cartQuantity } = useContext(cartContext); // lấy hàm addToCart từ context
+    const {getTotalItems } = useContext(cartContext); // lấy hàm addToCart từ context
     const [openInput,setOpenInput] = useState(false)
+    const cartQuantity = getTotalItems()
     useEffect(()=>{
         function clickOutside(){
             setOpenInput(false)
@@ -51,7 +52,7 @@ function Header(props) {
                         </Link>
                     </div>
                     <div className='col-span-10 grid grid-cols-10 h-[35px] relative'>
-                        <div className="col-span-9 flex"><div className=" bg-white flex justify-center items-center  hover:cursor-pointer w-[50px] rounded-l-md search z-50  hover:text-red-700 serachIconContainer"><FiSearch className='searchIcon text-[22px]'/>
+                        <div className="col-span-9 flex"><div className=" bg-white flex justify-center items-center  hover:cursor-pointer w-[50px] rounded-l-md search z-50  hover:text-red-700 serachIconContainer"><Link to={`/sanpham`}><FiSearch className='searchIcon text-[22px]' /></Link>
                         </div>
                         <input className='flex-1 z-50 rounded-r-md h-9 focus:outline-none pr-4 focus:rounded-b-none searchInput' onClick={e=>{e.stopPropagation() ;setOpenInput(true)}} value={searchvalue} onChange={(e)=>{setSearchvalue(e.target.value)}}/>
                         {openInput && <>

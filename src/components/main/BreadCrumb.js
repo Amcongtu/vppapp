@@ -20,6 +20,9 @@ function BreadCrumb(props) {
         if(name==="gio-hang"){
             name="Giỏ hàng"
         }
+        if(name==="thanh-toan"){
+            name="Thanh toán"
+        }
         currentLink +=`/${crumb}` 
         return (
             <div className='flex' key ={index}>

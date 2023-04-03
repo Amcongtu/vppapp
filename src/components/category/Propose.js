@@ -9,8 +9,9 @@ function Propose(props) {
                     <div className='h-[68px] w-[76%] mx-auto mt-1 px-2 hover:text-main-bg '>
                         <img src={item.image} alt={item.name} className='w-full h-full' />
                     </div>
-                    <div className="line-clamp-1 text-[12.6px]  px-[8px] py-1 flex justify-center items-center hover:text-main-bg text-center ">
-                    {item.name}
+                    <div className="text-[12px] text-center max-w-[80%] mx-auto line-clamp-1">
+                        {String(item.name)}
+                        
                     </div>
                 </Link>
             </div>

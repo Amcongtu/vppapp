@@ -19,11 +19,11 @@ function Product(props) {
     const [dataCategory, setDatacategory] = useState([])
     const paramURLProduct = useParams() 
     
-    const {data,isLoading,error} = useSWR(`http://192.168.166.1:8800/api/product/${paramURLProduct.id}`,getProductDetail)
+    const {data,isLoading,error} = useSWR(`${process.env.REACT_APP_SERVER}/product/${paramURLProduct.id}`,getProductDetail)
     useEffect(() => {
         const fetchCategory = async () => {
           try {
-            const response = await fetch(`http://192.168.166.1:8800/api/category/`);
+            const response = await fetch(`${process.env.REACT_APP_SERVER}/category/`);
             const data = await response.json();
             setDatacategory(data)
           } catch (error) {

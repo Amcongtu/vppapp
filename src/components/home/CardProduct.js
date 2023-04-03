@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AiOutlineHeart,AiFillEye,AiOutlineShoppingCart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import "./cart.scss"
+import { useState } from 'react';
 function CardProduct(props) {
-    
-    const data = props.data.map((item,index)=>{
+        const [dataCardProduct,setDataCartProduct] = useState([])
+        useEffect(()=>{
+            const handlerGetData = async()=>{
+                  const res = await fetch(`${process.env.REACT_APP_SERVER}/category/${props.data.name}/products`)
+                  const data = await res.json()
+                  setDataCartProduct(data)
+            }
+            handlerGetData()
+            return ()=>handlerGetData()
+        },[])
+        console.log(dataCardProduct)
+    const data = dataCardProduct.map((item,index)=>{
         return (
-            <Link className="col-span-1 " key={index} to={`/sanpham/${item.name}`}>
+            index<6 && <Link className="col-span-1 " key={index} to={`/sanpham/${item.TENHH}`}>
                 <div className=' relative duration-200 cart-container'>
                     <div className='border-[1px] border-gray-100 cursor-pointer'>
                         <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
-                            <img src={item.image} alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
+                            <img src={item.HINHANH[0]} alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                         </div>
-                        <span className=' line-clamp-1 px-[12px] text-[#343434] text-[16px] font-[500] block'>{item.name}</span>
+                        <span className=' px-[12px] text-[#343434] text-[16px] font-[500] text-left mx-auto line-clamp-1'>{item.TENHH}</span>
                         <div className='flex px-[12px] mt-[18px] mb-[8px] justify-between'>
-                            <span className='block text-main-bg basis-full text-[20px] font-[700] '>{item.discountPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span> 
+                            <span className='block text-main-bg basis-full text-[20px] font-[700] '>{Number(item.DONGIA).toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span> 
                             <div className='mt-1'><AiOutlineHeart className='text-[24px] active:scale-90 font-bold'/></div>
                         </div>
                         <div className='px-[12px] mt-[-4px] flex my-12'>
-                            <div className=' bg-main-bg rounded-sm flex justify-center items-center text-[14px] select-none text-white font-[500] px-1 '>{item.discountPercent}%</div>
-                            <div className='line-through text-gray-500 text-[14px] px-2 font-[500] select-none'>{item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
+                            <div className=' bg-main-bg rounded-sm flex justify-center items-center text-[14px] select-none text-white font-[500] px-1 '>50%</div>
+                            <div className='line-through text-gray-500 text-[14px] px-2 font-[500] select-none'>{Number(item.DONGIA).toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
                         </div>
                         
                     </div>
@@ -42,7 +53,7 @@ function CardProduct(props) {
         <div className='my-[10px]'>
             <div className="container_main bg-white rounded-md ">
 
-                <h2 className='text-[#4b5563] text-[18px] leading-[27px] font-[700] pt-[20px] pl-[20px] pb-[15px]'>GIẤY IN VĂN PHÒNG - GIẤY PHOTO CHẤT LƯỢNG</h2>
+                <h2 className='text-[#4b5563] text-[18px] leading-[27px] font-[700] pt-[20px] pl-[20px] pb-[15px]'>{props.data.name}</h2>
                 <div className="grid grid-cols-6">
                     {data}
 

@@ -6,20 +6,20 @@ import { Link } from 'react-router-dom';
 function ProductCategory({data}) {
     const product = data.map((item,index)=>{
         return (
-            <Link className="col-span-1 " key={index} to={`/sanpham/${item.name}`}>
+            <Link className="col-span-1 " key={index} to={`/sanpham/${item.TENHH}`}>
                             <div className=' relative duration-200 cart-container border-[1px] border-gray-100'>
                                 <div className='border-[1px] border-gray-100 cursor-pointer'>
                                     <div className='w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1'>
-                                        <img src={item.image} alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
+                                        <img src={item.HINHANH[0]} alt="Ảnh minh họa sản phẩm" className='w-full h-full object-contain rounded-md' />
                                     </div>
-                                    <span className=' line-clamp-1 px-[12px] text-[#343434] text-[16px] font-[500] block'>{item.name}</span>
+                                    <span className='px-[12px] text-[#343434] text-[16px] font-[500] text-left mx-auto line-clamp-1'>{item.TENHH}</span>
                                     <div className='flex px-[12px] mt-[18px] mb-[8px] justify-between'>
-                                        <span className='block text-main-bg basis-full text-[20px] font-[700] '>{item.discountPrice.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span> 
+                                        <span className='block text-main-bg basis-full text-[20px] font-[700] '>{item.DONGIA.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span> 
                                         <div className='mt-1'><AiOutlineHeart className='text-[24px] active:scale-90 font-bold'/></div>
                                     </div>
                                     <div className='px-[12px] mt-[-4px] flex my-12'>
-                                        <div className=' bg-main-bg rounded-sm flex justify-center items-center text-[14px] select-none text-white font-[500] px-1 '>{item.discountPercent}%</div>
-                                        <div className='line-through text-gray-500 text-[14px] px-2 font-[500] select-none'>{item.price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
+                                        <div className=' bg-main-bg rounded-sm flex justify-center items-center text-[14px] select-none text-white font-[500] px-1 '>30 %</div>
+                                        <div className='line-through text-gray-500 text-[14px] px-2 font-[500] select-none'>{Number(120000).toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
                                     </div>
                                     
                                 </div>
