@@ -41,7 +41,7 @@ function Header(props) {
                     <div className='flex gap-1 mt-[2px] hover:cursor-pointer active:scale-90 hover:opacity-80'><FaBlog className='text-[16px] mt-[2px]'/>Blogs</div>
                     <div className='flex gap-1 mt-[2px] hover:cursor-pointer active:scale-90 hover:opacity-80'><MdDiscount className='text-[16px] mt-[2px] '/>Chính sách ưu đãi</div>
                     <div className='flex gap-1 mt-[2px] hover:cursor-pointer active:scale-90 hover:opacity-80'><FaRegBell className='text-[16px] mt-[2px]'/>Thông báo</div>
-                    <div className="border py-[2px] px-[8px] rounded-md hover:cursor-pointer active:scale-90 hover:opacity-80 font-[600] shadow-sm">ĐĂNG NHẬP</div>
+                    <Link to={"/dang-nhap"} className="border py-[2px] px-[8px] rounded-md hover:cursor-pointer active:scale-90 hover:opacity-80 font-[600] shadow-sm">ĐĂNG NHẬP</Link>
                     <div className="border py-[2px] px-[8px] rounded-md ml-[-25px]  shadow-sm bg-[#ed2d1ccf] hover:cursor-pointer active:scale-90 hover:opacity-90 font-[600]">ĐĂNG KÝ</div>
                 </div>
                 <div  className='grid grid-cols-12 mt-[3px]'>

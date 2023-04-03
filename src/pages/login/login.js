@@ -1,11 +1,11 @@
 import React from 'react';
-import Footer from './../../components/main/Footer';
+import Login from '../../components/login/login';
 
 function login(props) {
     return (
-        <div>
-            <Footer/>
-          
+        <div className='  bg-[#F4F4F4] w-full h-full'>
+            
+          <Login/>
         </div>
     );
 }

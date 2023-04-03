@@ -27,7 +27,7 @@ const route = [
         layout:defaultLayout,
     },
     {
-        path:'/login',
+        path:'/dang-nhap',
         element:login,
         layout:null,
     }, 
