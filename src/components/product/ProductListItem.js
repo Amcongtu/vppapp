@@ -27,10 +27,10 @@ function ProductListItem(props) {
     };
    fetchProduct();
   }, [page]);
-  const lengthProduct = product.length
+  const lengthProduct = product?.length
   const data = product?.map((item, index) => {
     return (
-      <Link className="col-span-2 shadow-sm" to={`/sanpham/${item.TENHH}`}>
+      <Link className="col-span-2 shadow-sm" key={index} to={`/sanpham/${item.TENHH}`}>
         <div className=" relative duration-200 cart-container">
           <div className="border-[1px] border-gray-100 cursor-pointer">
             <div className="w-[152px] h-[172px] mx-auto rounded-md mt-5 pt-1">

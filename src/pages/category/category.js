@@ -10,7 +10,6 @@ function Category(props) {
     const [dataCategory, setDatacategory] = useState([])
     const [dataCardProduct,setDataCartProduct] = useState([])
     const urlName = useParams();
-    console.log(urlName)
     useEffect(() => {
         const fetchCategory = async () => {
           try {

@@ -8,6 +8,7 @@ import pageNotFound from './../pages/PageNotFound/pageNotFound';
 import Productdetail from '../pages/product/ProductDetail';
 import Cart from './../pages/cart/cart';
 import Checkout from "../pages/checkout/Checkout";
+import Admin from "../pages/admin/Admin";
 
 
 const route = [
@@ -46,6 +47,11 @@ const route = [
         element:ProductList,
         layout:defaultLayout,
     },
+    {
+        path:'/admin',
+        element:Admin,
+        layout:null,
+    }, 
     {
         path:"*",
         element:pageNotFound,
