@@ -9,6 +9,7 @@ import Productdetail from '../pages/product/ProductDetail';
 import Cart from './../pages/cart/cart';
 import Checkout from "../pages/checkout/Checkout";
 import Admin from "../pages/admin/Admin";
+import OrderDetail from "../pages/admin/OrderDetail";
 
 
 const route = [
@@ -50,6 +51,11 @@ const route = [
     {
         path:'/admin',
         element:Admin,
+        layout:null,
+    }, 
+    {
+        path:'/admin/orderdetail/:id',
+        element:OrderDetail,
         layout:null,
     }, 
     {

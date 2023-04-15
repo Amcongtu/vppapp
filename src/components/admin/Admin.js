@@ -30,7 +30,7 @@ function AdminComp(props) {
     }
     const order = data?.map((item,index)=>{
         return <div key={index} className="grid grid-cols-5 border-b-[1px] border-b-gray-200 p-2">
-            <Link className="col-span-1 hover:text-main-bg">{item._id}</Link>
+            <Link to={`/admin/orderdetail/${item._id}`} className="col-span-1 hover:text-main-bg">{item._id}</Link>
             <div className="col-span-1">{item.customer}</div>
             <div className="col-span-1 text-main-bg text-[16.75] font-[500]">{item.total.toLocaleString('vi', {style : 'currency', currency : 'VND'})    }</div>
             <div className="col-span-1">{item.status}</div>
