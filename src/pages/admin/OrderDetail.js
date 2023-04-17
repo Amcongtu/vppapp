@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import HeaderAdmin from '../../components/admin/HeaderAdmin';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function OrderDetail(props) {
     const [active, setActive] = useState(4)
@@ -48,7 +49,7 @@ function OrderDetail(props) {
                         <div className={`${active===1?'text-main-bg ':''}border-b-[1px] border-b-gray-200 px-2 py-3 select-none cursor-pointer hover:text-[16.5px] duration-100` } onClick={()=>{setActive(1)}}>Quản lý người dùng</div>
                         <div className={`${active===2?'text-main-bg ':''}border-b-[1px] border-b-gray-200 px-2 py-3 select-none cursor-pointer hover:text-[16.5px] duration-100` } onClick={()=>{setActive(2)}}>Quản lý danh mục</div>
                         <div className={`${active===3 ?'text-main-bg ':''}border-b-[1px] border-b-gray-200 px-2 py-3 select-none cursor-pointer hover:text-[16.5px] duration-100` } onClick={()=>{setActive(3)}}>Quản lý sản phẩm</div>
-                        <div className={`${active===4 ?'text-main-bg ':''}border-b-[1px] border-b-gray-200 px-2 py-3 select-none cursor-pointer hover:text-[16.5px] duration-100` }  onClick={()=>{setActive(4)}}>Quản lý hóa đơn</div>
+                        <Link to={"/admin"} className={`${active===4 ?'text-main-bg ':''}border-b-[1px] border-b-gray-200 px-2 py-3 select-none cursor-pointer hover:text-[16.5px] duration-100` }  onClick={()=>{setActive(4)}}>Quản lý hóa đơn</Link>
                     </div>
                 </div>
                 <div className="col-span-8">
