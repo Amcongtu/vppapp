@@ -35,7 +35,7 @@ function AdminComp(props) {
             <div className="col-span-1 text-main-bg text-[16.75] font-[500]">{item.total.toLocaleString('vi', {style : 'currency', currency : 'VND'})    }</div>
             <div className="col-span-1">{item.status}</div>
             <div className="col-span-1 flex">
-                <Link className="text-blue-500 hover:cursor-pointer hover:opacity-50">Sửa</Link>
+                <Link to={`/admin/edit-orderdetail/${item._id}`} className="text-blue-500 hover:cursor-pointer hover:opacity-50">Sửa</Link>
                 <div className="px-2">|</div>
                 <div className="text-orange-500 hover:cursor-pointer hover:opacity-50" onClick={()=>{handleDeleteOrder(item._id)}}>Xóa</div>
             </div>            

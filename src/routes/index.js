@@ -10,6 +10,7 @@ import Cart from './../pages/cart/cart';
 import Checkout from "../pages/checkout/Checkout";
 import Admin from "../pages/admin/Admin";
 import OrderDetail from "../pages/admin/OrderDetail";
+import EditOrderDetail from "../pages/admin/editOrderDetail";
 
 
 const route = [
@@ -56,6 +57,11 @@ const route = [
     {
         path:'/admin/orderdetail/:id',
         element:OrderDetail,
+        layout:null,
+    }, 
+    {
+        path:'/admin/edit-orderdetail/:id',
+        element:EditOrderDetail,
         layout:null,
     }, 
     {
