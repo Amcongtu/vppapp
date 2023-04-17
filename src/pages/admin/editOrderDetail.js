@@ -48,7 +48,7 @@ function EditOrderDetail(props) {
         )
     })
     const handleCapnhat = async()=>{
-        await fetch(`http://localhost:8800/api/order/${paramURLProduct.id}`,{
+        await fetch(`https://vppbackend.onrender.com/api/order/${paramURLProduct.id}`,{
             method:"put",
             headers:{
                 "Content-Type": "application/json",
