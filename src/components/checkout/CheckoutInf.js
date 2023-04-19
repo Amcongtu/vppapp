@@ -36,17 +36,19 @@ function CheckoutInf(props) {
 
             var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
             if (vnf_regex.test(sdtValue) === true) {
-                if(sdtValue===""&&dcValue===""){
+                if(sdtValue===""||dcValue===""){
                     setMessage("Ô tô đỏ là không được bỏ trống.")
         
                 }
                 setStatusSDT(true)}
             else{
-                if(sdtValue===""&&dcValue===""){
+
+                if(sdtValue===""||dcValue===""){
                     setMessage("Ô tô đỏ là không được bỏ trống.")
         
                 }
                 setMessage("Số điện thoại không đúng định dạng")
+
 
                 setStatusSDT(false)
 
