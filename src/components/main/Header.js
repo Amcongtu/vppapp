@@ -14,18 +14,20 @@ import { cartContext } from '../../context/CartContext';
 
 
 function Header(props) {
-    const {getTotalItems } = useContext(cartContext); // lấy hàm addToCart từ context
+    const {cartItems } = useContext(cartContext); // lấy hàm addToCart từ context
     const [openInput,setOpenInput] = useState(false)
-    const cartQuantity = getTotalItems()
+    // const cartQuantity = getTotalItems()
     useEffect(()=>{
         function clickOutside(){
             setOpenInput(false)
         }
         document.addEventListener("click",clickOutside)
+
         return ()=>{
             document.removeEventListener("click",clickOutside)
         }
     },[])
+    const soluong = cartItems.length
  
     const {searchvalue,setSearchvalue} = useContext(searchContext)
     
@@ -78,7 +80,7 @@ function Header(props) {
                         <Link className={`relative col-span-1 flex justify-center items-center text-white active:scale-90 hover:text-red-700 hover:cursor-pointer pt-2 select-none`} to="/gio-hang">
                             <AiOutlineShoppingCart className=' text-[24px] '>
                             </AiOutlineShoppingCart>
-                            <div className=' absolute w-fit px-[6px] h-5 bg-white top-[1px] rounded-full ml-6 text-gray-700 text-center flex justify-center items-center text-[12px]'>{cartQuantity}</div>
+                            <div className=' absolute w-fit px-[6px] h-5 bg-white top-[1px] rounded-full ml-6 text-gray-700 text-center flex justify-center items-center text-[12px]'>{soluong}</div>
                         </Link>
                     </div>
 

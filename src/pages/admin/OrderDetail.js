@@ -39,6 +39,7 @@ function OrderDetail(props) {
             </div>
         )
     })
+
     return (
         <div>
             <HeaderAdmin/>
@@ -53,23 +54,32 @@ function OrderDetail(props) {
                     </div>
                 </div>
                 <div className="col-span-8">
-                    <div className="bg-white p-4 rounded-md shadow-md">
+                    <div className=" p-4 rounded-md shadow-md">
                         {(active===4)&&(
                             <div>
-                                <div className="grid grid-cols-4 border-b-[1px] border-b-gray-200 p-2">
+                                <div className="bg-white grid grid-cols-4 border-b-[1px] border-b-gray-200 p-2">
                                     <div className="col-span-1 text-[16.75px] font-[500]">Mã hóa đơn</div>
                                     <div className="col-span-1 text-[16.75px] font-[500]">Tên khách hàng</div>
                                     <div className="col-span-1 text-[16.75px] font-[500]">Tổng tiền</div>
                                     <div className="col-span-1 text-[16.75px] font-[500]">Trạng thái</div>
                                   
                                 </div>
-                                <div className="grid grid-cols-4 border-b-[1px] border-b-gray-200 p-2">
+                                <div className="bg-white grid grid-cols-4 border-b-[1px] border-b-gray-200 p-2">
                                     <div className="col-span-1 text-[16.25px] font-[400]">{data?._id}</div>
                                     <div className="col-span-1 text-[16.25px] font-[400]">{data?.customer}</div>
                                     <div className="col-span-1 text-[16.25px] font-[500] text-red-500">{data?.total.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
                                     <div className="col-span-1 text-[16.25px] font-[400]">{data?.status}</div>
                                    
                                 </div>
+                                <div className="bg-white grid grid-cols-2 border-b-[1px] border-b-gray-200 p-2 mt-2">
+                                    <div className="col-span-1 text-[16.75px] font-[500]">Địa chỉ</div>
+                                    <div className="col-span-1 text-[16.75px] font-[500]">Số điện thoại</div>
+                                </div>
+                                <div className="bg-white grid grid-cols-2 border-b-[1px] border-b-gray-200 p-2">
+                                    <div className="col-span-1 text-[16.75px] ">{data?.diachi}</div>
+                                    <div className="col-span-1 text-[16.75px] ">{data?.sdt}</div>
+                                </div>
+                             
                                
                             
                             </div>

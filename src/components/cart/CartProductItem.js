@@ -12,6 +12,8 @@ function CartProductItem({data,so}) {
 
     // const { updateCart,checkProductQuantity } = useContext(cartContext);
     const handlesoluongChange = (product, newsoluong) => {
+        window.location.reload()
+
         if(Number(newsoluong)===0){
             window.location.reload()
         }

@@ -10,6 +10,7 @@ function ProductDetail({data}) {
     const { addToCart } = useContext(cartContext); // lấy hàm addToCart từ context
   const handleAddToCart = () => {
     addToCart(data, quantity); // thêm sản phẩm vào giỏ hàng với số lượng là 1
+    // window.location.reload(true)
   };
 
     const [activeThumnail,setActiveThumnail]= useState(0)

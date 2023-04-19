@@ -65,7 +65,7 @@
     return (
       <div>
         <cartContext.Provider
-          value={{ addToCart, removeFromCart, updateCartItemQuantity, getTotalItems, getTotalPrice}}
+          value={{ addToCart, removeFromCart, updateCartItemQuantity, getTotalItems, getTotalPrice,cartItems}}
         >
           {children}
         </cartContext.Provider>

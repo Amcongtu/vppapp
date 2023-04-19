@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../context/CartContext';
-
+// import { validateContext } from '../../context/Validate';
+import  { validateContext } from '../../context/Validate';
 function InfOrder(props) {
     var cart = JSON.parse( localStorage.getItem("cartItems"));
     const { getTotalPrice,getTotalItems } = useContext(cartContext);
     const toltalPrice = Number(getTotalPrice())
     const TotalItems = Number(getTotalItems())
     const discount = Number(0)
+
     const dataCart =cart.map((item,index)=>{
         return (
             <div key={index} className=' border-b-[1px] py-2 border-gray-200 '>
@@ -31,25 +33,56 @@ function InfOrder(props) {
                 </div>
         )
     })
+    const [status,setStatus] = useState(false)
+    const {dcValue,sdtValue,tenValue} = useContext(validateContext); 
 
-
-    const createForm = ()=>{
+    // const [dathang,setDatHang] = useState(false)
+    const createForm = async()=>{
         const products=cart.map(item => ({ product: item._id, quantity: item.quantity,price: Number(item.DONGIA)*Number(item.quantity) }));
-        fetch(`${process.env.REACT_APP_SERVER}/order`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              customer: 'Customer Name',
-              products: products
-            })
-          })
-          .then(response => response.json())
-        .then(data => console.log(data))
-        .then(console.log("đặt đơn thành công"))
-        .catch(error => console.error(error))
+        try{
+           
+            const res = await fetch(`${process.env.REACT_APP_SERVER}/order`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  customer: tenValue,
+                  sdt:sdtValue,
+                  diachi:dcValue,
+                  products: products
+                })
+              })
+              if(res.status===201){
+                alert("Đặt hàng thành công")
+
+              }
+              else{
+                alert("Đặt hàng thất bại")
+
+              }
+            //   if(res.status===){
+
+            //   }
+            
+    
+        }
+        catch(error){
+         alert("Đặt hàng thất bại")
+
+        }
     }
+    useEffect(()=>{
+        if(dcValue !==""&&sdtValue!==""){
+            setStatus(true)
+        }
+        else{
+            setStatus(false)
+        }
+        
+    
+    },[dcValue,sdtValue])
+    
     return (
         <div>
             <div className='bg-white rounded-md'>
@@ -83,7 +116,11 @@ function InfOrder(props) {
                     <textarea name="" id="" rows="5" className='border-[1px] w-full block mt-3 p-2 text-[#343434] text-[14px] outline-main-bg' placeholder='Ghi chú cho đơn hàng....'></textarea>
                 </div>
                 <div className='p-5 mt-[-12px]'>
-                    <div className="text-white text-[18px] rounded-md select-none p-2 hover:opacity-90 active:scale-95 cursor-pointer font-[500] flex justify-center items-center bg-main-bg"  onClick={()=>{createForm()}}>ĐẶT HÀNG</div>
+                    {(status ?<> <div className="text-white text-[18px] rounded-md select-none p-2 hover:opacity-90 active:scale-95 cursor-pointer font-[500] flex justify-center items-center bg-main-bg"  onClick={()=>{createForm()}}>ĐẶT HÀNG</div></>:<div className="text-white text-[18px] rounded-md select-none p-2  active:scale-95 font-[500] cursor-not-allowed flex justify-center items-center bg-slate-500">Đặt hàng</div> )}
+                    {/* {(!status && )} */}
+                    {/* {dathang &&<>thành công</>} */}
+
+                   
                 </div>
             </div>
         </div>
