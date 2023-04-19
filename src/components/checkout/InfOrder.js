@@ -74,10 +74,31 @@ function InfOrder(props) {
     }
     useEffect(()=>{
         if(dcValue !==""&&sdtValue!==""){
-            setStatus(true)
+
+
         }
         else{
             setStatus(false)
+        }
+        if(sdtValue!==""){
+            setStatus(true)
+            var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+            if (vnf_regex.test(sdtValue) === true) {
+                if(dcValue===""){
+                    setStatus(false)
+        
+                }
+            else{
+                setStatus(true)
+
+            }
+
+            
+}
+else{
+    setStatus(false)
+    
+}
         }
         
     
