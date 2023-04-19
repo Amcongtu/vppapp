@@ -9,7 +9,7 @@ function OrderDetail(props) {
    const [data,setData] = useState(null)
     useEffect(()=>{
         const getData = async()=>{
-            const response = await fetch(`https://vppbackend.onrender.com/api/order/${paramURLProduct.id}`)
+            const response = await fetch(`${process.env.REACT_APP_SERVER}/order/${paramURLProduct.id}`)
             const data =await response.json()
             setData(data)
         }
