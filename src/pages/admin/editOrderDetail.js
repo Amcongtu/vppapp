@@ -39,15 +39,26 @@ function EditOrderDetail(props) {
         // console.log(data.products)
     }
     const handleCapnhat = async()=>{
-        await fetch(`https://vppbackend.onrender.com/api/order/${paramURLProduct.id}`,{
-            method:"put",
-            headers:{
-                "Content-Type": "application/json",
-            },
-            body:JSON.stringify(data)
-        })
+        try {
+            const res = await fetch(`${process.env.REACT_APP_SERVER}/order/${paramURLProduct.id}`,{
+                method:"put",
+                headers:{
+                    "Content-Type": "application/json",
+                },
+                body:JSON.stringify(data)
+            })
+            if(res.status===200){
+                alert("Cập nhật thành công")
+            }
+            else if(res.status!==200){
+                alert("Cập nhật thất bại")
+            }
+        } catch (error) {
+            alert("Cập nhật thất bại")
+            
+        }
+        
         // const dl = await res.json()
-        window.location.reload(true)
     }
 
     const orderdetail = data?.products.map((item,index)=>{
@@ -69,7 +80,7 @@ function EditOrderDetail(props) {
             </div>
         )
     })
-   
+   console.log(data)
     return (
         <div>
             <HeaderAdmin/>
@@ -125,8 +136,8 @@ function EditOrderDetail(props) {
                                     <div className="col-span-1 text-[16.75px] font-[500]">Số điện thoại</div>
                                 </div>
                                 <div className="bg-white grid grid-cols-2 border-b-[1px] border-b-gray-200 p-2">
-                                    <div className="col-span-1 text-[16.75px] ">{data?.diachi}</div>
-                                    <div className="col-span-1 text-[16.75px] ">{data?.sdt}</div>
+                                    <input className="col-span-1 text-[16.75px] " onChange={(e)=>{handleData("diachi",e.target.value)}} value={data?.diachi}/>
+                                    <input className="col-span-1 text-[16.75px] " onChange={(e)=>{handleData("sdt",e.target.value)}} value={data?.sdt}/>
                                 </div>
                             
                             </div>
